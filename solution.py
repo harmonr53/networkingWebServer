@@ -10,7 +10,7 @@ while True:
   #Establish the connection
   # print(f'Ready to serve at {thost} port 13331')
   (connectionSocket, addr) = serverSocket.accept()
-  print(addr)
+  # print(addr)
   try:
     bytes_recvd = 0
     # print('Right before the recv')
@@ -23,7 +23,7 @@ while True:
     outputdata = f.read() #read the contents of helloworld.html
     loutputdata = len(outputdata)
     #Send one HTTP header line into socket
-    outputheader = f'HTTP/1.1 200 OK\nContent-Type: text/html; charset=UTF-8\n\n'
+    outputheader = f'HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n'
     for i in range(0,len(outputheader)):
       connectionSocket.send(outputheader[i].encode())
     connectionSocket.send("\r\n".encode())
@@ -37,7 +37,7 @@ while True:
   except:
     #Send response for message for file not found
     # print('Uh oh...were in the exception.')
-    outputerror = "HTTP/1.1 404 Not Found"
+    outputerror = "HTTP/1.1 404 Not Found\r\n"
     for i in range(0,len(outputerror)):
       connectionSocket.send(outputerror[i].encode())
     connectionSocket.send("\r\n".encode())
