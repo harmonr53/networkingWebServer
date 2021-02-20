@@ -34,7 +34,7 @@ while True:
     connectionSocket.send("\r\n".encode())
     # print(f'The following data has been sent: \r\n{outputdata}')
     connectionSocket.close()
-  except:
+  except (IOError, BrokenPipeError) as e:
     #Send response for message for file not found
     # print('Uh oh...were in the exception.')
     outputerror = "HTTP/1.1 404 Not Found\r\n"
