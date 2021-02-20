@@ -43,5 +43,6 @@ while True:
     connectionSocket.send("\r\n".encode())
     #Close client socket
     connectionSocket.close()
+    pass
 serverSocket.close()
 sys.exit()#Terminate the program after sending the corresponding data
