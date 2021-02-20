@@ -6,7 +6,7 @@ def webServer(port=13331):
     serverSocket = socket(AF_INET, SOCK_STREAM)
 
     #Prepare a sever socket
-    serverSocket.bind((gethostname("localhost"), port))
+    serverSocket.bind((gethostname(), port))
     #Fill in start
     serverSocket.listen()
     #Fill in end
