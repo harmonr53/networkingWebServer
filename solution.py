@@ -42,7 +42,7 @@ def webServer(port=13331):
             connectionSocket.send("\r\n".encode())
 
             #Close client socket
-            connectionSocket.close()
+            # connectionSocket.close()
             pass
 
     serverSocket.close()
