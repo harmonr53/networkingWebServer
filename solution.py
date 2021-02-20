@@ -43,7 +43,7 @@ def webServer(port=13331):
             # for i in range(0, len(outputerror)):
             #     connectionSocket.send(outputerror[i].encode())
             # connectionSocket.send("\r\n".encode())
-            connectionSocket.sendAll('HTTP/1.1 404 Not Found\r\n\r\n'.encode())
+            connectionSocket.sendall('HTTP/1.1 404 Not Found\r\n\r\n'.encode())
 
             #Close client socket
             connectionSocket.close()
