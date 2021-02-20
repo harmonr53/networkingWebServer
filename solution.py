@@ -8,7 +8,7 @@ thost = gethostname()
 serverSocket.listen()
 while True:
   #Establish the connection
-  print(f'Ready to serve at {thost} port 13331')
+  # print(f'Ready to serve at {thost} port 13331')
   (connectionSocket, addr) = serverSocket.accept()
   print(addr)
   try:
