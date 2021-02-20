@@ -47,7 +47,7 @@ def webServer(port=13331):
 
             #Close client socket
             connectionSocket.close()
-            pass
+            # pass
 
     serverSocket.close()
     sys.exit()  # Terminate the program after sending the corresponding data
