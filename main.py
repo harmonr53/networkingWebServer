@@ -13,12 +13,12 @@ while True:
   print(addr)
   try:
     bytes_recvd = 0
-    print('Right before the recv')
+    # print('Right before the recv')
     message = connectionSocket.recv(2048) #Get http request from the socket
-    print('Right after the recv')
-    print(f'This is the message: {message}')
+    # print('Right after the recv')
+    # print(f'This is the message: {message}')
     filename = message.split()[1]
-    print(f'This is the filename: {filename}')
+    # print(f'This is the filename: {filename}')
     f = open(filename[1:])
     outputdata = f.read() #read the contents of helloworld.html
     loutputdata = len(outputdata)
@@ -27,16 +27,16 @@ while True:
     for i in range(0,len(outputheader)):
       connectionSocket.send(outputheader[i].encode())
     connectionSocket.send("\r\n".encode())
-    print(f'The following header has been sent: \r\n{outputheader}')
+    # print(f'The following header has been sent: \r\n{outputheader}')
     #Send the content of the requested file to the client
     for i in range(0,len(outputdata)):
       connectionSocket.send(outputdata[i].encode())
     connectionSocket.send("\r\n".encode())
-    print(f'The following data has been sent: \r\n{outputdata}')
+    # print(f'The following data has been sent: \r\n{outputdata}')
     connectionSocket.close()
   except:
     #Send response for message for file not found
-    print('Uh oh...were in the exception.')
+    # print('Uh oh...were in the exception.')
     outputerror = "HTTP/1.1 404 Not Found"
     for i in range(0,len(outputerror)):
       connectionSocket.send(outputerror[i].encode())
