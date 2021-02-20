@@ -24,10 +24,11 @@ def webServer(port=13331):
             outputdata = f.read()
 
             #Send one HTTP header line into socket
-            outputheader = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n"
-            for i in range(0, len(outputheader)):
-                connectionSocket.send(outputheader[i].encode())
-            connectionSocket.send("\r\n".encode())
+            # outputheader = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n"
+            # for i in range(0, len(outputheader)):
+            #     connectionSocket.send(outputheader[i].encode())
+            # connectionSocket.send("\r\n".encode())
+            connectionSocket.send('HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\n\r\n'.encode())
 
             #Send the content of the requested file to the client
             for i in range(0, len(outputdata)):
